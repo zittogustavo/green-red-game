@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  public userName: string = "";
+  public score: number = 0;
+  public maxScore: number = 0;
 
-  constructor() { }
+  constructor(private readonly _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this._route.paramMap.subscribe((params : ParamMap)=> {  
+      this.userName = params.get("name")!;
+      this.score = Number(params.get("score")!);
+      this.maxScore = Number(params.get("maxScore")!);
+    })
   }
 
 }

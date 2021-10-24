@@ -3,7 +3,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NAVIGATION_PATH } from '../../const/navigation.const';
+import { UserService } from '../../services/user/user.service';
 
+const usersKey = 'users-list';
+let users = JSON.parse(localStorage.getItem(usersKey)!) || [];
 
 @Component({
   selector: 'app-home',
@@ -16,20 +19,25 @@ export class HomeComponent implements OnInit {
   });
   public gameUrl = NAVIGATION_PATH.GAME;
 
-
   constructor(
     private readonly fb: FormBuilder,
-    private readonly _router: Router
+    private readonly _router: Router,
+    private readonly _userService: UserService
   ) {}
 
   ngOnInit(): void {
+
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.invalid) {
       alert("You need to provide a valid name to join the game");
     } else {
-      this._router.navigate([this.gameUrl]);
+      const userName = this.form.get("name")?.value;      
+      if (this._userService.register(userName)) {
+        console.log(this._userService.user);
+        this._router.navigate([this.gameUrl, this._userService.user]);
+      }
     }
   }
 
