@@ -1,17 +1,17 @@
 <div class="game-section">
     <div class="header">
-        <span>Hi {{userName}}</span>
+        <span>Hi {{actualPlayer.name}}</span>
         <mat-icon onClick="logout()">exit_to_app</mat-icon>
     </div>
     <div class="body">
-        <span>High Score: {{maxScore}}</span>
+        <span>High Score: {{actualPlayer.maxScore}}</span>
         <mat-icon> traffic</mat-icon>
-        <span>Score: {{score}}</span>
+        <span>Score: {{actualPlayer.score}}</span>
         <div>
-            <button onClick="left()">
+            <button (click)="step(false)">
                 Left
             </button>
-            <button onClick="right()">
+            <button (click)="step(true)">
                 Right
             </button>
         </div>        

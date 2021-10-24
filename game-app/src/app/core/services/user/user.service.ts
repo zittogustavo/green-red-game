@@ -26,13 +26,12 @@ export class UserService {
         return this.user;
     }
 
-    public updateUser() {
-        // let params = body;
-        // let user = users.find(x => x.id === idFromUrl());
+    public updateUser(user: UserData) {
+        let updatedUser = users.find((x: UserData) => x.name === user.name);
 
-        // // update and save user
-        // Object.assign(user, params);
-        // localStorage.setItem(usersKey, JSON.stringify(users));
+        // update and save user
+        Object.assign(updatedUser, user);
+        localStorage.setItem(usersKey, JSON.stringify(users));
     }
 
     /** Getter user property */

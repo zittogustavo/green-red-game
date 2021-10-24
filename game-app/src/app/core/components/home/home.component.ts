@@ -29,15 +29,16 @@ export class HomeComponent implements OnInit {
 
   }
 
-  async onSubmit() {
+  public onSubmit() {
     if (this.form.invalid) {
       alert("You need to provide a valid name to join the game");
     } else {
       const userName = this.form.get("name")?.value;      
+      
       if (this._userService.register(userName)) {
-        console.log(this._userService.user);
         this._router.navigate([this.gameUrl, this._userService.user]);
       }
+
     }
   }
 
