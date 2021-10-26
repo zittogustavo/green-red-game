@@ -5,7 +5,7 @@
     </div>
     <div class="body">
         <span>High Score: {{actualPlayer.maxScore}}</span>
-        <mat-icon>traffic</mat-icon>
+        <div #light><mat-icon>traffic</mat-icon></div>
         <span>Score: {{actualPlayer.score}}</span>
         <div>
             <button (click)="step(false)">
