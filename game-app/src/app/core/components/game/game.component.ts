@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { NAVIGATION_PATH } from '../../const/navigation.const';
 import { UserData } from '../../models/entities/user/user-data-dto.model';
 import { UserService } from '../../services/user/user.service';
 
@@ -10,6 +11,8 @@ import { UserService } from '../../services/user/user.service';
 })
 export class GameComponent implements OnInit {
   public actualPlayer: UserData = new UserData("");
+  public NAVIGATION_PATH = NAVIGATION_PATH;
+
   private lastStep: boolean = true;
   private isFirstStep: boolean = true;
   
