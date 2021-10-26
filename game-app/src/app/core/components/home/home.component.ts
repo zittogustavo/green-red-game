@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NAVIGATION_PATH } from '../../const/navigation.const';
@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   public form: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
   });
-  public gameUrl = NAVIGATION_PATH.GAME;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -36,7 +35,7 @@ export class HomeComponent implements OnInit {
       const userName = this.form.get("name")?.value;      
       
       if (this._userService.register(userName)) {
-        this._router.navigate([this.gameUrl, this._userService.user]);
+        this._router.navigate([NAVIGATION_PATH.GAME, this._userService.user]);
       }
 
     }
