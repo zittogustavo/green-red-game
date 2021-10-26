@@ -7,6 +7,10 @@
     min-height: 300px;
     font-size: 30px;
 
+    mat-icon, button{
+        cursor: pointer;
+    }
+
     .header {
         display: flex;
         flex-direction: row;
