@@ -14,7 +14,7 @@ export class UserService {
     private _user!: UserData;
 
     public register(userName: string): UserData {    
-        users = users.length? users : [];
+        users = users?.length ? users : [];
         if (this.exist(userName)) {
             this.user = this.exist(userName);
         } else {
@@ -27,11 +27,13 @@ export class UserService {
     }
 
     public updateUser(user: UserData) {
-        let updatedUser = users.find((x: UserData) => x.name === user.name);
+        let updatedUser = users?.find((x: UserData) => x.name === user.name);
 
-        // update and save user
-        Object.assign(updatedUser, user);
-        localStorage.setItem(usersKey, JSON.stringify(users));
+        if (updatedUser) {
+            // update and save user
+            Object.assign(updatedUser, user);
+            localStorage.setItem(usersKey, JSON.stringify(users));
+        }        
     }
 
     /** Getter user property */

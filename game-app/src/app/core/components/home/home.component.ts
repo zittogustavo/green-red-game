@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     if (this.form.invalid) {
       alert("You need to provide a valid name to join the game");
     } else {
