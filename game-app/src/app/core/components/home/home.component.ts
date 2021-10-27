@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NAVIGATION_PATH } from '../../const/navigation.const';
+import { NAVIGATION_PATH } from '../../shared/const/navigation.const';
 import { UserService } from '../../services/user/user.service';
 
 const usersKey = 'users-list';

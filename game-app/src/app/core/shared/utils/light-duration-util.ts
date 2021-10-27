@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { COMMOMS } from "../../const/common.const";
+import { COMMOMS } from "../const/common.const";
 import { UserData } from "../../models/entities/user/user-data-dto.model";
 
 @Injectable({

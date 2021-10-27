@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GameComponent } from './core/components/game/game.component';
 import { HomeComponent } from './core/components/home/home.component';
-import { NAVIGATION_PATH } from './core/const/navigation.const';
+import { NAVIGATION_PATH } from './core/shared/const/navigation.const';
 
 export const routes: Routes = [  
   {
