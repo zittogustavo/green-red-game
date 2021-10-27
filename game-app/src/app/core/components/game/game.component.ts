@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { COMMOMS } from '../../const/common.const';
-import { NAVIGATION_PATH } from '../../const/navigation.const';
+import { COMMOMS } from '../../shared/const/common.const';
+import { NAVIGATION_PATH } from '../../shared/const/navigation.const';
 import { UserData } from '../../models/entities/user/user-data-dto.model';
 import { UserService } from '../../services/user/user.service';
 import { LightDurationUtil } from '../../shared/utils/light-duration-util';
