@@ -34,7 +34,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.light.nativeElement.style.color = 'red';
+    this.light.nativeElement.style.color = COMMOMS.STOP_COLOR;
     setTimeout(() => {
       this.setLight();
     }, COMMOMS.RED_DEFAULT_TIME);    
@@ -48,10 +48,10 @@ export class GameComponent implements OnInit, AfterViewInit {
 
   public step(step: boolean) {
     //First step is used because player can start the game with left or right foot
-    if (this.light.nativeElement.style.color == 'green' && (this.isFirstStep || this.lastStep !== step)) {
+    if (this.light.nativeElement.style.color == COMMOMS.WALK_COLOR && (this.isFirstStep || this.lastStep !== step)) {
       this.addPoint();
     } else {
-      this.light.nativeElement.style.color == 'red' ? this.actualPlayer.score = 0 : this.removePoint();
+      this.light.nativeElement.style.color == COMMOMS.STOP_COLOR ? this.actualPlayer.score = 0 : this.removePoint();
       
     }
     this.actualPlayer.maxScore = this.actualPlayer.score > this.actualPlayer.maxScore ? this.actualPlayer.score : this.actualPlayer.maxScore;
@@ -72,7 +72,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   private setLight(): void {
-    this.light.nativeElement.style.color = this.light.nativeElement.style.color == 'red' ? 'green' : 'red';
+    this.light.nativeElement.style.color = this.light.nativeElement.style.color == COMMOMS.STOP_COLOR ? COMMOMS.WALK_COLOR : COMMOMS.STOP_COLOR;
     this.lightCounter = LightDurationUtil.getLightCounter(this.lightCounter, this.actualPlayer, this.light.nativeElement.style.color);
     
     //recursive

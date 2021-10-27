@@ -1,6 +1,8 @@
 export const COMMOMS = {
     INVALID: 'INVALID',
     VALID: 'VALID',
+    STOP_COLOR: 'red',
+    WALK_COLOR: 'green',
     RED_DEFAULT_TIME: 3000,
     GREEN_MAX_TIME: 10000,
     GREEN_MIN_TIME: 2000,
